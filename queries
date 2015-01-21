@@ -1,0 +1,26 @@
+alvearian:
+client_id=VUxGbxByJrtVEPztccpGPCeViTekIslY
+secret_id=7bd25bd9287df619562be9c5e0d47057a8ad2b46095fe0c9c1a8aeb1e00d2807
+
+alvearian1:
+client_id=vXaZbtDkaYkQxqMlGDgHieagTirwIQvo
+secret_id=67c97ada54b272aaf437bbc455aa3d537264412992e641a1121436fd12dbb7cb
+zRbUzclAqFbgoxYfyJXyzDyssvPudIaN
+
+
+curl "http://127.0.0.1:5000/register_app?session_id=&redirect_uri=" -X POST
+
+curl "http://127.0.0.1:5000/code?client_id=&secret_id=&state=123" -b "session_id="
+
+curl "http://127.0.0.1:5000/access_token?code=&client_id=&secret_id="
+
+curl "http://127.0.0.1:5000/refresh_token?refresh_token=&client_id=&secret_id=" -X POST
+curl "http://127.0.0.1:5000/revoke_token?refresh_token=&client_id=&secret_id=" -X POST
+
+curl "http://127.0.0.1:5000/me?access_token="
+
+curl "http://127.0.0.1:5000/posts"
+curl "http://127.0.0.1:5000/posts?access_token=&author_un=" -d '{"text":"","caption":""}' -H "Content-Type: application/json" -X POST
+
+curl "http://127.0.0.1:5000/comments?post_id=&author_un=&offset=5&limit=10&res_per_page=5"
+curl "http://127.0.0.1:5000/comments?access_token=&author_un=&post_id=" -d '{"text":""}' -H "Content-Type: application/json" -X POST
